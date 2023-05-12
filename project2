@@ -11,7 +11,7 @@ i installed the package with the command
 To verify that nginx was successfully installed and is running as a service in Ubuntu, I run:
 
 `sudo systemctl status nginx`
-<img width="518" alt="active nginx" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/cfa6e572-2bc4-495e-9f73-8b362954f47a">
+<img width="518" alt="active nginx" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/4ae50f2f-fa26-4b9a-b4d4-2282d7a19200">
 
 i added a new rule to my EC2
 
@@ -191,6 +191,7 @@ try {
  `http://<Public_domain_or_IP>/todo_list.php`
  
  <img width="359" alt="final proj2 result" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/6646787f-77d8-4d65-85d1-32affb123fa6">
+
  
  And that brings me to the end of project 2 documentation.
 
