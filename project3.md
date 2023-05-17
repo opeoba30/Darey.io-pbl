@@ -144,7 +144,7 @@ I opened the file created with `vim todo.js` then paste the code below in the fi
 
 I now updated my routes from the file api.js in ‘routes’ directory to make use of the new model.
 
-In Routes directory, I opened api.js with `vim api.js`, deleted the code inside with `:%d` command and wrote code below into it then save and exit
+In Routes directory, I opened api.js with `vim api.js`, deleted the code inside with `:%d` command and inserted the code below into it then save and exit
 
 `const express = require ('express');
 
@@ -217,13 +217,92 @@ Ensure to update <username>, <password>, <network-address> and <database> accord
   
 Now I need to update the index.js to reflect the use of .env so that Node.js can connect to the database.
 
-Simply I deleted the existing content in the file, and update it with the entire code below.
+Simply I deleted the existing content in the file, and update it with a new code, see below pics for the code
+  
+  <img width="409" alt="code" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/f750e13a-11ae-4c7e-b969-f9ad4986ce23">
 
-- Open the file with `vim index.js`
-- Second item
-- Third item
+I Started my server using the command: `node index.js` 
+
+My Database connected successfully
+
+## FRONTEND CREATION
+
+In the same root directory as my backend code, which is the Todo directory, run: `npx create-react-app client`
+  
+<img width="593" alt="client" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/40146942-bca6-4d12-a49a-71652a7700b7">
+
+  
+This created a new folder in my Todo directory called client, where i added all the react code.
+
+### Running a React App
+  
+Before testing the react app, there are some dependencies that need to be installed.
+  
+ 1. Install concurrently. It is used to run more than one command simultaneously from the same terminal window.
+      	`npm install concurrently --save-dev`
+  
+2. Install nodemon. It is used to run and monitor the server. If there is any change in the server code, nodemon will restart it automatically and load the new changes.
+      `npm install nodemon --save-dev`
+  
+3. In Todo folder I opened the package.json file. Change some code in it.
+  
+  <img width="610" alt="package json" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/86a6dec4-7e05-423a-90ec-332f909319c9">
+
+### Configure Proxy in package.json
+  
+1. Change directory to ‘client’ `cd client`
+  
+2. Open the package.json file  `vi package.json`
+
+3. Add the key value pair in the package.json file "proxy": "http://localhost:5000".
+  
+Now, I ensured am inside the Todo directory, and simply do:   `npm run dev`
+
+  <img width="490" alt="dev" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/3f8664d1-d404-4b6c-a90c-06fa07cf772d">
+  
+In order to be able to access the application from the Internet i have to open another TCP port 3000 on EC2 by adding a new Security Group rule. 
+  
+### Creating your React Components
+  
+change directory to client   `cd client`
+  
+moved to the src directory  `cd src`
+  
+Inside my src folder I created another folder called components   `mkdir components`
+ 
+Moved into the components directory with    `cd components`
+
+Inside ‘components’ directory I created three files  `touch Input.js ListTodo.js Todo.js`
+  
+ I opened Input.js file  `vi Input.js`
+ 
+ and inserted the code appeared in the image below
+  
+  <img width="258" alt="code 2" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/fc5403c0-038b-4aa8-88e9-99aa459ceccd">
+
+i went back into my client directory   `cd ../..` to install Axios  `npm install axios`
+  
+Go to ‘components’ directory  `cd src/components`
+  
+After that I opened my ListTodo.js  `vi ListTodo.js` and inserted the code 
+  
+  <img width="348" alt="code3" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/f6dc1867-6e0f-4363-8a50-d563cec5b26b">
+
+i went back to my SRC folder and run   `vi App.js`
+  
+  <img width="243" alt="code 4" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/5f650f45-8754-4fe2-b7b4-d7101981b4fb">
+
+ In the src directory open the App.css   `vi App.css`
+  
+ <img width="488" alt="complete 3" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/adbe8c2b-5ea1-44e6-ab50-cccfe4d2184f">
+
+  
+  
 
 
+  
+
+  
 
 
 
