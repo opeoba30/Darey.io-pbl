@@ -295,6 +295,14 @@ i went back to my SRC folder and run   `vi App.js`
  In the src directory open the App.css   `vi App.css`
   
  <img width="488" alt="complete 3" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/adbe8c2b-5ea1-44e6-ab50-cccfe4d2184f">
+  
+  Back to the Todo directory `cd ../..` and run: `npm run dev`
+  
+  ![proj3_init](https://github.com/opeoba30/Darey.io-pbl/assets/132816403/3db762b4-594c-4dcc-9d02-18997fbb4e8f)
+
+  
+  <img width="916" alt="proj3-completed" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/13f28ec3-e9f4-4c2f-98b6-9cbf442e3295">
+
 
   
   
