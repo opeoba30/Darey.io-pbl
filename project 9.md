@@ -175,6 +175,8 @@ If you see the changes you had previously made in your GitHub – the job works 
 
 Congratulations!
 
+You have just implemented your first Continous Integration solution using Jenkins CI.
+
 ![image](https://github.com/opeoba30/Darey.io-pbl/assets/132816403/6e6a2867-823e-4709-84df-abacfd39943d)
 
 
