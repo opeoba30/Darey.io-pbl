@@ -138,6 +138,46 @@ On main dashboard select "Manage Jenkins" and choose "System" menu item.
 
 Scroll down to Publish over SSH plugin configuration section and configure it to be able to connect to your NFS server:
 
+i. Provide a private key (content of .pem file that you use to connect to NFS server via SSH/Putty)
+
+ii. Arbitrary name
+
+iii. Hostname – can be private IP address of your NFS server
+
+iv. Username – ec2-user (since NFS server is based on EC2 with RHEL 8)
+
+v. Remote directory – /mnt/apps since our Web Servers use it as a mointing point to retrieve files from the NFS server
+
+Test the configuration and make sure the connection returns Success. Remember, that TCP port 22 on NFS server must be open to receive SSH connections.
+
+<img width="839" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/c2ea2350-9696-4f69-82d4-81c701fa5e3d">
+
+<img width="713" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/326a92a6-ac6a-415a-82fb-a34617aa15ed">
+
+Save the configuration, open your Jenkins job/project configuration page and add another one "Post-build Action"
+
+Configure it to send all files probuced by the build into our previouslys define remote directory. In our case we want to copy all files and directories – so we use **.
+If you want to apply some particular pattern to define which files to send – use this syntax.
+
+Save this configuration and go ahead, change something in README.MD file in your GitHub Tooling repository.
+
+Webhook will trigger a new job and in the "Console Output" of the job you will find something like this:
+
+<img width="505" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/843487db-ce14-405f-835c-9d5dec6f3991">
+
+To make sure that the files in /mnt/apps have been udated – connect via SSH/Putty to your NFS server and check README.MD file
+
+`cat /mnt/apps/README.md`
+
+<img width="351" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/e279b8ac-8097-458d-808d-a3611effb187">
+
+If you see the changes you had previously made in your GitHub – the job works as expected.
+
+Congratulations!
+
+![image](https://github.com/opeoba30/Darey.io-pbl/assets/132816403/6e6a2867-823e-4709-84df-abacfd39943d)
+
+
 
 
 
