@@ -60,8 +60,66 @@ Allocate Elastic_ip to jenkins-ansible server
 ## BEGIN ANSIBLE DEVELOPMENT
 
 1. In your ansible-config-mgt GitHub repository, create a new branch that will be used for development of a new feature.
+   
+   Give your branches descriptive and comprehensive names, for example, if you use Jira or Trello as a project management tool – include ticket number (e.g. PRJ-145)
+
+2. Checkout the newly created feature branch to your local machine and start building your code and directory structure
+
+   <img width="293" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/34204199-1f46-445d-bd80-30f31e5fd650">
+
+3. Create a directory and name it playbooks – it will be used to store all your playbook files.
+
+4. Create a directory and name it inventory – it will be used to keep your hosts organised.
+
+<img width="235" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/92d64228-cda3-4087-9d86-4ffda822b351">
+
+5. Within the playbooks folder, create your first playbook, and name it common.yml
+
+    <img width="220" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/6ba4f83b-dc6c-4e8c-a83a-bdede0df57fb">
+    
+6. Within the inventory folder, create an inventory file (.yml) for each environment (Development, Staging Testing and Production) dev, staging, uat, and prod respectively.
+
+## Step 4 – Set up an Ansible Inventory
+
+An Ansible inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate. Since our intention is to execute Linux commands on remote hosts, and ensure that it is the intended configuration on a particular server that occurs.
+
+Save below inventory structure in the inventory/dev file to start configuring your development servers. Ensure to replace the IP addresses according to your own setup.
+
+Note: Ansible uses TCP port 22 by default, which means it needs to ssh into target servers from Jenkins-Ansible host – for this you can implement the concept of ssh-agent. Now you need to import your key into ssh-agent:
+
+`eval `ssh-agent -s``
+`ssh-add <path-to-private-key>`
+
+<img width="244" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/189d7227-1235-48d0-8edf-1af3f218935b">
+
+Confirm the key has been added with the command below, you should see the name of your key
+
+`ssh-add -l`
+
+Now, ssh into your Jenkins-Ansible server using ssh-agent
+
+`ssh -A ec2-user@public-ip`
+
+<img width="312" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/f48b816c-7c48-4673-bfd6-69d27d2a3556">
+
+
+
+
+
+
+
 
    
+
+
+
+   
+
+
+   
+
+
+
 
 
 
