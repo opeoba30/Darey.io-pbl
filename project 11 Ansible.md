@@ -98,20 +98,32 @@ Confirm the key has been added with the command below, you should see the name o
 
 Now, ssh into your Jenkins-Ansible server using ssh-agent
 
-`ssh -A ec2-user@public-ip`
+`ssh -A ec2-user@public-ip` and for ubuntu user `ssh -A ubuntu@public-ip`
 
 <img width="312" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/f48b816c-7c48-4673-bfd6-69d27d2a3556">
 
 
 
+Also notice, that your Load Balancer user is ubuntu and user for RHEL-based servers is ec2-user.
+
+Update your inventory/dev.yml file with this snippet of code:
+
+<img width="423" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/a05a467c-d1c3-42c7-8262-bbaaf7af4cce">
+
+<img width="221" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/e76c583a-1cbe-4bff-a8f6-110531dcb5b6">
 
 
+## CREATE A COMMON PLAYBOOK
 
+### Step 5 – Create a Common Playbook
 
+It is time to start giving Ansible the instructions on what you needs to be performed on all servers listed in inventory/dev.
 
-   
+In common.yml playbook you will write configuration for repeatable, re-usable, and multi-machine tasks that is common to systems within the infrastructure.
 
+Update your playbooks/common.yml file with following code:
 
+<img width="434" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/302650b1-2b52-4646-b7bc-62d253c74175">
 
    
 
