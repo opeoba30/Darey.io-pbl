@@ -125,11 +125,97 @@ Update your playbooks/common.yml file with following code:
 
 <img width="434" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/302650b1-2b52-4646-b7bc-62d253c74175">
 
+but there will be a failure in one of the server "db" when you run your playbook because the db uses (apt) and not (yum) 
+
+Examine the code above and try to make sense out of it. This playbook is divided into two parts, each of them is intended to perform the same task: install wireshark utility (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses root user to perform this task and respective package manager: yum for RHEL 8 and apt for Ubuntu.
+
+run the ansible playbook command `ansible-playbook -i inventory/dev.yml playbooks/common.yml`
+
+Feel free to update this playbook with following tasks:
+
+Create a directory and a file inside it
+Change timezone on all servers
+Run some shell script
+…
+
    
+## Step 6 – Update GIT with the latest code
+
+Now you have a separate branch, you will need to know how to raise a Pull Request (PR), get your branch peer reviewed and merged to the master branch.
+
+Commit your code into GitHub:
+
+1. use git commands to add, commit and push your branch to GitHub.
+
+`git status`
+
+`git add <selected files>`
+
+<img width="316" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/19f3fbb8-ab70-43dd-bc30-073e5878277f">
+
+`git commit -m "commit message"`
+
+<img width="319" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/7d108fa8-1b5a-41fe-89c2-a07926f9e5a9">
+
+
+2. Create a Pull request (PR)
+
+<img width="310" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/5bfde762-b504-4ca1-b05f-fbb9977e8333">
+
+<img width="839" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/03be0199-28e4-40b9-968a-4229c850e31c">
+
+
+3. Wear a hat of another developer for a second, and act as a reviewer.
+
+4. If the reviewer is happy with your new feature development, merge the code to the master branch.
+
+<img width="263" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/b036f6e4-80b1-4b75-8ee7-8a71130d8c9d">
+
+5. Head back on your terminal, checkout from the feature branch into the master, and pull down the latest changes.
+
+<img width="320" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/dcd831f5-dbd9-4a94-b520-deb19f3bcbbb">
+
+Once your code changes appear in master branch – Jenkins will do its job and save all the files (build artifacts) to /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on Jenkins-Ansible server.
+
+<img width="677" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/eaa234c1-463f-45c6-a737-b3c1549e9d96">
+
+it triggers another build on my Jenkins, see below:
+
+<img width="497" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/1f00210f-a14b-41ed-9e4a-d3544bc7578f">
+
+Here below in Jenkins-Ansible server
+
+<img width="266" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/fc460726-db87-402c-8014-5127f3948219">
+
+## RUN FIRST ANSIBLE TEST
+
+Now, it is time to execute ansible-playbook command and verify if your playbook actually works:
+
+   `cd ansible-config-mgt`
+   `ansible-playbook -i inventory/dev.yml playbooks/common.yml`
+   
+   You can go to each of the servers and check if wireshark has been installed by running `which wireshark` or `wireshark --version`
+   
+   <img width="314" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/c62cfcec-d00a-48d8-a597-525644582d4a">
+
+   Your updated with Ansible architecture now looks like this:
+
+![image](https://github.com/opeoba30/Darey.io-pbl/assets/132816403/847eb1ca-221b-4c84-a95e-1e42b837a4dc)
+
+## Optional step – Repeat once again
+
+Update your ansible playbook with some new Ansible tasks and go through the full checkout -> change codes -> commit -> PR -> merge -> build -> ansible-playbook cycle again to see how easily you can manage a servers fleet of any size with just one command!
+
+## Congratulations
+
+You have just automated your routine tasks by implementing your first Ansible project! There is more exciting projects ahead, so lets keep it moving!
+
+![image](https://github.com/opeoba30/Darey.io-pbl/assets/132816403/52ba7ba8-93a5-4fbc-b1fe-18bc425e65bb)
+
+
 
 
    
-
 
 
 
