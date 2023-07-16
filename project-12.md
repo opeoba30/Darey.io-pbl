@@ -228,4 +228,20 @@ Now run the playbook against your uat inventory and see what happens:
 
 `sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yml`
 
+<img width="428" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/ffe6c582-ce59-44d4-a952-add572b53af9">
+
+<img width="904" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/07964274-ae8f-4618-81f8-c883ca371779">
+
+Your Ansible architecture now looks like this:
+
+![image](https://github.com/opeoba30/Darey.io-pbl/assets/132816403/4d3a4f62-2720-4455-8f84-b9970603b32a)
+
+Congratulations!
+We have learned how to deploy and configure UAT Web Servers using Ansible imports and roles!
+
+![image](https://github.com/opeoba30/Darey.io-pbl/assets/132816403/05c08c02-c3cb-44c1-9827-12fa0dd46f15)
+
+
+
+
 
