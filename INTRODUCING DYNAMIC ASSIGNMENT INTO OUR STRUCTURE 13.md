@@ -104,6 +104,44 @@ Update site.yml file to make use of the dynamic assignment. (At this point, we c
       - name: Webserver assignment
         import_playbook: ../static-assignments/webservers.yml
 
+<img width="571" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/4adca339-b0b4-4c1b-9f2c-812207ff502e">
+
+
+## Community Roles
+
+Now it is time to create a role for MySQL database – it should install the MySQL package, create a database and configure users. But why should we re-invent the wheel? There are tons of roles that have already been developed by other open source engineers out there. These roles are actually production ready, and dynamic to accomodate most of Linux flavours. With Ansible Galaxy again, we can simply download a ready to use ansible role, and keep going.
+
+### Download Mysql Ansible Role
+
+We will be using a `MySQL role developed by geerlingguy`.
+
+### Hint: 
+To preserve your your GitHub in actual state after you install a new role – make a commit and push to master your ‘ansible-config-mgt’ directory. Of course you must have git installed and configured on Jenkins-Ansible server and, for more convenient work with codes, you can configure Visual Studio Code to work with this directory. In this case, you will no longer need webhook and Jenkins jobs to update your codes on Jenkins-Ansible server, so you can disable it – we will be using Jenkins later for a better purpose.
+
+
+
+On Jenkins-Ansible server make sure that `git` is installed with `git --version`, then go to ‘ansible-config-mgt’ directory and run
+
+            git init
+            git pull https://github.com/<your-name>/ansible-config-mgt.git
+            git remote add origin https://github.com/<your-name>/ansible-config-mgt.git
+            git branch roles-feature
+            git switch roles-feature
+
+Inside `roles` directory create your new MySQL role with `ansible-galaxy install geerlingguy.mysql` and rename the folder to `mysql`
+
+            mv geerlingguy.mysql/ mysql
+
+<img width="345" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/b7036904-acb1-4ff4-978b-a0317305b340">
+
+
+Read `README.md` file, and edit roles configuration to use correct credentials for MySQL required for the `tooling` website.
+
+Now it is time to upload the changes into your GitHub:
+
+
+
+
 
 
 
