@@ -226,7 +226,7 @@ So, we should have this in `site.yml`
 
 Now run the playbook against your uat inventory and see what happens:
 
-`sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yml`
+`ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yml`
 
 <img width="428" alt="image" src="https://github.com/opeoba30/Darey.io-pbl/assets/132816403/ffe6c582-ce59-44d4-a952-add572b53af9">
 
